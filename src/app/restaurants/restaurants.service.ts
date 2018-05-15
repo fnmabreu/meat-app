@@ -6,6 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 import { Restaurant } from './restaurant/restaurant.model';
 import { MEAT_API } from '../app.api';
 import { ErrorHandler } from '../app.error-handler';
+import { MenuItem } from '../restaurant-detail/menu-item/menu-item.model';
 
 
 // Decorator @Injectable - necessário para acessar a serviços da framework angular
@@ -31,6 +32,13 @@ export class RestaurantsService {
 
     reviewsOfRestaurant(id: string): Observable<any> {
       return this.http.get(`${MEAT_API.baseUrl}/restaurants/${id}/reviews`)
+      .pipe(
+        catchError(ErrorHandler.handleError)
+      );
+    }
+
+    menuOfRestaurant(id: string): Observable<MenuItem[]>{
+      return this.http.get<MenuItem[]>(`${MEAT_API.baseUrl}/restaurants/${id}/menu`)
       .pipe(
         catchError(ErrorHandler.handleError)
       );
