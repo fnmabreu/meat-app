@@ -7,7 +7,7 @@ export class ShoppingCartService {
     items: CartItem[] = [];
 
     clear() {
-        this.items= [];
+        this.items = [];
     }
 
     addItem(item: MenuItem) {
