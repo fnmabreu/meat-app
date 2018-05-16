@@ -184,8 +184,6 @@ body {
     text-transform: uppercase;
     width: 80%;
   }
-  .menu-item-info-box-text {
-  }
   
   .menu-item-info-box-more {
     display: block;
@@ -278,4 +276,8 @@ body {
 .search-bar {
     opacity: 0;
     max-height: 0px;
+}
+
+.form-rounded {
+  border-radius: 1rem;
 }

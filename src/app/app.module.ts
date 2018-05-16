@@ -23,6 +23,7 @@ import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-
 
 import localePt from '@angular/common/locales/pt-PT';
 import { OrderComponent } from './order/order.component';
+import { InputComponent } from './shared/input/input.component';
 
 registerLocaleData(localePt, 'pt-PT');
 
@@ -39,7 +40,8 @@ registerLocaleData(localePt, 'pt-PT');
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
-    OrderComponent
+    OrderComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,
