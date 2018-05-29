@@ -26,7 +26,7 @@
               <div class="form-row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label>Morada</label>
+                    <label class="control-label required">Morada</label>
                     <mt-app-input-container errorMessage="Campo obrigatório deve conter no minimo 5 caracteres" label="Endereco">
                       <input type="text" class="form-control form-rounded" name="address" ngModel required minlength="5" autocomplete="off">
                     </mt-app-input-container>
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                  <label>Cidade</label>
+                  <label class="control-label required">Cidade</label>
                   <mt-app-input-container errorMessage="Cidade obrigatória" label="cidade">
                       <input type="text" class="form-control form-rounded" name="city" ngModel required autocomplete="off">
                   </mt-app-input-container>
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="col-md-3 mb-3">
-                  <label>Código Postal</label>
+                  <label class="control-label required">Código Postal</label>
                   <mt-app-input-container  errorMessage="Código postal obrigatório" label="Código postal">
                       <input type="text" class="form-control form-rounded" name="postalCode" placeholder="4000-001" ngModel required>
                   </mt-app-input-container>
