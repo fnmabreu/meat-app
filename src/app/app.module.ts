@@ -25,6 +25,7 @@ import localePt from '@angular/common/locales/pt-PT';
 import { OrderComponent } from './order/order.component';
 import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
+import { OrderItemsComponent } from './order/order-items/order-items.component';
 
 registerLocaleData(localePt, 'pt-PT');
 
@@ -43,7 +44,8 @@ registerLocaleData(localePt, 'pt-PT');
     ReviewsComponent,
     OrderComponent,
     InputComponent,
-    RadioComponent
+    RadioComponent,
+    OrderItemsComponent
   ],
   imports: [
     BrowserModule,
