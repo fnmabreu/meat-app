@@ -24,6 +24,7 @@ import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-
 import localePt from '@angular/common/locales/pt-PT';
 import { OrderComponent } from './order/order.component';
 import { InputComponent } from './shared/input/input.component';
+import { RadioComponent } from './shared/radio/radio.component';
 
 registerLocaleData(localePt, 'pt-PT');
 
@@ -41,7 +42,8 @@ registerLocaleData(localePt, 'pt-PT');
     MenuItemComponent,
     ReviewsComponent,
     OrderComponent,
-    InputComponent
+    InputComponent,
+    RadioComponent
   ],
   imports: [
     BrowserModule,
