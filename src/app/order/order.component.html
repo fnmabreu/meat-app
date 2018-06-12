@@ -1,125 +1,108 @@
 <!--INICIO DO CONTEUDO-->
 <section class="content-header">
-  </section>
+</section>
 
-  <section class="content">
-    <section class="invoice">
+<section class="content">
+  <section class="invoice">
 
-          {{form.valid}}
-          {{form.value | json}}
+    {{form.valid}} {{form.value | json}}
 
-          <form #form="ngForm" novalidate>
+    <form #form="ngForm" novalidate>
 
-            <div class="row">
-              <div class="col-xs-12">
-                <h2 class="page-header">
-                  <i class="fa fa-shopping-cart"></i> Finalize o seu pedido
-                </h2>
-              </div>
-            </div>                
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-shopping-cart"></i> Finalize o seu pedido
+          </h2>
+        </div>
+      </div>
 
-            <div class="row invoice-info">
-              <div class="col-xs-12">
-                <p class="lead">Dados de Entrega:</p>
-              </div>
+      <div class="row invoice-info">
+        <div class="col-xs-12">
+          <p class="lead">Dados de Entrega:</p>
+        </div>
 
-              <div class="form-row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="control-label required">Morada</label>
-                    <mt-app-input-container errorMessage="Campo obrigatório deve conter no minimo 5 caracteres" label="Endereco">
-                      <input type="text" class="form-control form-rounded" name="address" ngModel required minlength="5" autocomplete="off">
-                    </mt-app-input-container>
-                  </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label class="control-label required">Cidade</label>
-                  <mt-app-input-container errorMessage="Cidade obrigatória" label="cidade">
-                      <input type="text" class="form-control form-rounded" name="city" ngModel required autocomplete="off">
-                  </mt-app-input-container>
-               </div>
-
-                <div class="col-md-3 mb-3">
-                  <label>País</label>
-                  <mt-app-input-container errorMessage="País obrigatório" label="pais">
-                      <input type="text" class="form-control form-rounded" name="country" ngModel required>
-                  </mt-app-input-container>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                  <label class="control-label required">Código Postal</label>
-                  <mt-app-input-container  errorMessage="Código postal obrigatório" label="Código postal">
-                      <input type="text" class="form-control form-rounded" name="postalCode" placeholder="4000-001" ngModel required>
-                  </mt-app-input-container>
-                </div>
-
-              </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
-
-            <!-- Table row -->
-            <div class="row">
-              <div class="col-xs-12">
-                <p class="lead">Itens do Pedido:</p>
-              </div>
-
-                <mt-app-order-items></mt-app-order-items>
-
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
-
-            <div class="row">
-              <!-- accepted payments column -->
-              <div class="col-sm-6 col-xs-12">
-                <p class="lead">Formas de Pagamento:</p>
-
-                  <div class="form-group">
-                     <mt-app-radio [options]="paymentOptions" name="paymentOption" ngModel></mt-app-radio>
-                  </div>
-
-              </div>
-              <!-- /.col -->
-              <div class="col-sm-6 col-xs-12">
-                <p class="lead">Total:</p>
-
-                <div class="table-responsive">
-                  <table class="table">
-                    <tbody><tr>
-                      <th style="width:50%">Itens:</th>
-                      <td class="text-right">R$ 20,00</td>
-                    </tr>
-                    <tr>
-                      <th>Taxas de envio:</th>
-                      <td class="text-right">R$ 8,00</td>
-                    </tr>
-                    <tr>
-                      <th>Total:</th>
-                      <td class="text-right">R$ 28,00</td>
-                    </tr>
-                  </tbody></table>
-                </div>
-              </div>
-              <!-- /.col -->
-            </div>
-
-          </form>
-          
-          <div class="row">
-            <div class="col-xs-12">
-                <button  class="btn btn-success pull-right" [disabled]="!form.valid">
-                    <i class="fa fa-credit-card"></i> Concluir Pedido
-                </button>
+        <div class="form-row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label required">Morada</label>
+              <mt-app-input-container errorMessage="Campo obrigatório deve conter no minimo 5 caracteres" label="Endereco">
+                <input type="text" class="form-control form-rounded" name="address" ngModel required minlength="5" autocomplete="off">
+              </mt-app-input-container>
             </div>
           </div>
 
+          <div class="col-md-6 mb-3">
+            <label class="control-label required">Cidade</label>
+            <mt-app-input-container errorMessage="Cidade obrigatória" label="cidade">
+              <input type="text" class="form-control form-rounded" name="city" ngModel required autocomplete="off">
+            </mt-app-input-container>
+          </div>
 
+          <div class="col-md-3 mb-3">
+            <label>País</label>
+            <mt-app-input-container errorMessage="País obrigatório" label="pais">
+              <input type="text" class="form-control form-rounded" name="country" ngModel required>
+            </mt-app-input-container>
+          </div>
 
-      </section>
+          <div class="col-md-3 mb-3">
+            <label class="control-label required">Código Postal</label>
+            <mt-app-input-container errorMessage="Código postal obrigatório" label="Código postal">
+              <input type="text" class="form-control form-rounded" name="postalCode" placeholder="4000-001" ngModel required>
+            </mt-app-input-container>
+          </div>
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="lead">Itens do Pedido:</p>
+        </div>
+
+        <mt-app-order-items [items]="cartItems()" (increaseQty)="increaseQty($event)" (decreaseQty)="decreaseQty($event)" (remove)="remove($event)"></mt-app-order-items>
+
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-sm-6 col-xs-12">
+          <p class="lead">Formas de Pagamento:</p>
+
+          <div class="form-group">
+            <mt-app-radio [options]="paymentOptions" name="paymentOption" ngModel></mt-app-radio>
+          </div>
+
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-6 col-xs-12">
+          <p class="lead">Total:</p>
+
+          <mt-app-delivery-costs [delivery]="delivery" [itemsValue]="itemsValue()"></mt-app-delivery-costs>
+
+        </div>
+        <!-- /.col -->
+      </div>
+
+    </form>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="btn btn-success pull-right" [disabled]="!form.valid || cartItems().length === 0">
+          <i class="fa fa-credit-card"></i> Concluir Pedido
+        </button>
+      </div>
+    </div>
+
   </section>
+</section>
 
- 
 
-  <!-- FIM DO CONTEUDO-->
+
+<!-- FIM DO CONTEUDO-->
