@@ -4,24 +4,27 @@ import { CartItem } from '../restaurant-detail/shopping-cart/cart-item.model';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MEAT_API } from '../app.api';
-import { catchError } from 'rxjs/operators';
 import { Order } from './order.model';
+import { catchError } from 'rxjs/operators';
+import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 
 @Injectable()
 export class OrderService {
 
-  ordersUrl: string = `${MEAT_API.baseUrl}/orders`;
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-    })
-  };
+  ordersUrl = `${MEAT_API.baseUrl}/orders`; // URL web api
+  private handleError: HandleError;
 
   constructor(
     private cartService: ShoppingCartService,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    httpErrorHandler: HttpErrorHandler) {
+    this.handleError = httpErrorHandler.createHandleError('OrderService');
+  }
 
   itemsValue(): number {
     return this.cartService.total();
@@ -47,11 +50,13 @@ export class OrderService {
     this.cartService.clear();
   }
 
-  checkOrder(order: Order): Observable<any> {
-    const headers = new HttpHeaders()
-    .set('Content-Type', 'application/json');
-
-    return this.http
-      .post(this.ordersUrl, JSON.stringify(order), this.httpOptions);
+  checkOrder(order: Order): Observable<Order> {
+    return this.http.post<Order>(
+      this.ordersUrl,
+      JSON.stringify(order),
+      httpOptions)
+      .pipe(
+        catchError(this.handleError('checkOrder', order))
+      );
   }
 }
