@@ -31,6 +31,7 @@ import { OrderService } from './order/order.service';
 import { HttpErrorHandler } from './http-error-handler.service';
 import { MessageService } from './message.service';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { RatingComponent } from './shared/rating/rating.component';
 
 registerLocaleData(localePt, 'pt-PT');
 
@@ -52,7 +53,8 @@ registerLocaleData(localePt, 'pt-PT');
     RadioComponent,
     OrderItemsComponent,
     DeliveryCostsComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
