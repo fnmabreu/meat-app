@@ -5,7 +5,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form #form="ngForm" novalidate>
+    <form [formGroup]="orderForm" novalidate>
 
       <div class="row">
         <div class="col-xs-12">
@@ -15,7 +15,34 @@
         </div>
       </div>
 
-      <div class="row invoice-info">
+      <div class="row">
+        <div class="col-xs-12">
+            <p class="lead">Seus Dados:</p>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label class="control-label required">Nome</label>
+            <mt-app-input-container errorMessage="Nome deve ter no mínimo 5 caracteres" label="Nome">
+              <input type="text" class="form-control form-rounded" formControlName="name" autocomplete="off">
+            </mt-app-input-container>
+          </div>
+
+          <div class="col-md-3 mb-3">
+              <label class="control-label required">E-mail</label>
+              <mt-app-input-container errorMessage="E-mail inválido" label="E-mail">
+                <input type="text" class="form-control form-rounded" formControlName="email">
+              </mt-app-input-container>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label class="control-label required">Confirmação do e-mail</label>
+                <mt-app-input-container errorMessage="E-mail inválido" label="E-mail">
+                  <input type="text" class="form-control form-rounded" formControlName="emailConfirmation">
+                </mt-app-input-container>
+              </div>
+      </div>
+
+      <div class="row">
         <div class="col-xs-12">
           <p class="lead">Dados de Entrega:</p>
         </div>
@@ -24,30 +51,30 @@
           <div class="col-md-12">
             <div class="form-group">
               <label class="control-label required">Morada</label>
-              <mt-app-input-container errorMessage="Campo obrigatório deve conter no minimo 5 caracteres" label="Endereco">
-                <input type="text" class="form-control form-rounded" name="address" ngModel required minlength="5" autocomplete="off">
+              <mt-app-input-container errorMessage="Morada deve ter no mínimo 5 caracteres" label="Endereco">
+                <input type="text" class="form-control form-rounded" formControlName="address" minlength="5" autocomplete="off">
               </mt-app-input-container>
             </div>
           </div>
 
           <div class="col-md-6 mb-3">
             <label class="control-label required">Cidade</label>
-            <mt-app-input-container errorMessage="Cidade obrigatória" label="cidade">
-              <input type="text" class="form-control form-rounded" name="city" ngModel required autocomplete="off">
+            <mt-app-input-container errorMessage="Cidade obrigatória" label="Cidade">
+              <input type="text" class="form-control form-rounded" formControlName="city" autocomplete="off">
             </mt-app-input-container>
           </div>
 
           <div class="col-md-3 mb-3">
-            <label>País</label>
-            <mt-app-input-container errorMessage="País obrigatório" label="pais">
-              <input type="text" class="form-control form-rounded" name="country" ngModel required>
+            <label class="control-label required">País</label>
+            <mt-app-input-container errorMessage="País obrigatório" label="Pais">
+              <input type="text" class="form-control form-rounded" formControlName="country" autocomplete="off">
             </mt-app-input-container>
           </div>
 
           <div class="col-md-3 mb-3">
             <label class="control-label required">Código Postal</label>
             <mt-app-input-container errorMessage="Código postal obrigatório" label="Código postal">
-              <input type="text" class="form-control form-rounded" name="postalCode" placeholder="4000-001" ngModel required>
+              <input type="text" class="form-control form-rounded" formControlName="postalCode" placeholder="4000-001" autocomplete="off">
             </mt-app-input-container>
           </div>
 
@@ -74,7 +101,7 @@
           <p class="lead">Formas de Pagamento:</p>
 
           <div class="form-group">
-            <mt-app-radio [options]="paymentOptions" name="paymentOption" ngModel></mt-app-radio>
+            <mt-app-radio [options]="paymentOptions" formControlName="paymentOption"></mt-app-radio>
           </div>
 
         </div>
@@ -92,7 +119,7 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <button (click)="checkOrder(form.value)" class="btn btn-success pull-right" [disabled]="!form.valid || cartItems().length === 0">
+        <button (click)="checkOrder(orderForm.value)" class="btn btn-success pull-right" [disabled]="!orderForm.valid || cartItems().length === 0">
           <i class="fa fa-credit-card"></i> Concluir Pedido
         </button>
       </div>
