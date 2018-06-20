@@ -5,7 +5,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form [formGroup]="orderForm" novalidate>
+    <form novalidate [formGroup]="orderForm">
 
       <div class="row">
         <div class="col-xs-12">
@@ -16,30 +16,51 @@
       </div>
 
       <div class="row">
-        <div class="col-xs-12">
-            <p class="lead">Seus Dados:</p>
+        <div class="col-xs-12 col-sm-9">
+          <p class="lead">Dados da Fatura:</p>
         </div>
 
-        <div class="col-md-6 mb-3">
-            <label class="control-label required">Nome</label>
-            <mt-app-input-container errorMessage="Nome deve ter no mínimo 5 caracteres" label="Nome">
-              <input type="text" class="form-control form-rounded" formControlName="name" autocomplete="off">
-            </mt-app-input-container>
-          </div>
+        <div class="col-xs-12 col-sm-3">
+          <span class="help-block pull-right has-error-block" *ngIf="orderForm.hasError('emailsNotMatch')">
+            <i class="fa fa-remove"></i> Emails não são iguais</span>
+        </div>
 
-          <div class="col-md-3 mb-3">
-              <label class="control-label required">E-mail</label>
-              <mt-app-input-container errorMessage="E-mail inválido" label="E-mail">
-                <input type="text" class="form-control form-rounded" formControlName="email">
-              </mt-app-input-container>
-            </div>
+        <div class="col-md-6">
+          <label class="control-label required">Nome</label>
+          <mt-app-input-container errorMessage="Nome deve ter no mínimo 5 caracteres" label="Nome">
+            <input type="text" class="form-control form-rounded" formControlName="name" required>
+          </mt-app-input-container>
+        </div>
 
-            <div class="col-md-3 mb-3">
-                <label class="control-label required">Confirmação do e-mail</label>
-                <mt-app-input-container errorMessage="E-mail inválido" label="E-mail">
-                  <input type="text" class="form-control form-rounded" formControlName="emailConfirmation">
-                </mt-app-input-container>
-              </div>
+        <div class="col-md-3">
+          <label class="control-label">Nº Contribuinte</label>
+          <mt-app-input-container errorMessage="" label="NIF">
+            <input type="text" class="form-control form-rounded" formControlName="nif">
+          </mt-app-input-container>
+        </div>
+
+        <div class="col-md-3">
+          <label class="control-label required">Nº Telemóvel</label>
+          <mt-app-input-container errorMessage="Nº telemóvel obrigatório" label="Telemovel">
+            <input type="text" class="form-control form-rounded" formControlName="phone" required>
+          </mt-app-input-container>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <label class="control-label required">E-mail</label>
+          <mt-app-input-container errorMessage="E-mail inválido" label="E-mail">
+            <input type="text" class="form-control form-rounded" formControlName="email" required>
+          </mt-app-input-container>
+        </div>
+
+        <div class="col-md-6">
+          <label class="control-label required">Confirmação do e-mail</label>
+          <mt-app-input-container errorMessage="E-mail inválido" label="E-mail">
+            <input type="text" class="form-control form-rounded" formControlName="emailConfirmation" required>
+          </mt-app-input-container>
+        </div>
       </div>
 
       <div class="row">
@@ -49,32 +70,31 @@
 
         <div class="form-row">
           <div class="col-md-12">
-            <div class="form-group">
-              <label class="control-label required">Morada</label>
-              <mt-app-input-container errorMessage="Morada deve ter no mínimo 5 caracteres" label="Endereco">
-                <input type="text" class="form-control form-rounded" formControlName="address" minlength="5" autocomplete="off">
-              </mt-app-input-container>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <label class="control-label required">Cidade</label>
-            <mt-app-input-container errorMessage="Cidade obrigatória" label="Cidade">
-              <input type="text" class="form-control form-rounded" formControlName="city" autocomplete="off">
-            </mt-app-input-container>
-          </div>
-
-          <div class="col-md-3 mb-3">
-            <label class="control-label required">País</label>
-            <mt-app-input-container errorMessage="País obrigatório" label="Pais">
-              <input type="text" class="form-control form-rounded" formControlName="country" autocomplete="off">
+            <label class="control-label required">Morada</label>
+            <mt-app-input-container errorMessage="Morada deve ter no mínimo 5 caracteres" label="Endereco">
+              <input type="text" class="form-control form-rounded" formControlName="address" minlength="5" autocomplete="off" required>
             </mt-app-input-container>
           </div>
 
           <div class="col-md-3 mb-3">
             <label class="control-label required">Código Postal</label>
             <mt-app-input-container errorMessage="Código postal obrigatório" label="Código postal">
-              <input type="text" class="form-control form-rounded" formControlName="postalCode" placeholder="4000-001" autocomplete="off">
+              <input type="text" class="form-control form-rounded" formControlName="zipCode" placeholder="0000-000" autocomplete="off"
+                required>
+            </mt-app-input-container>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label class="control-label required">Localidade</label>
+            <mt-app-input-container errorMessage="Localidade obrigatória" label="Localidade">
+              <input type="text" class="form-control form-rounded" formControlName="locality" autocomplete="off" required>
+            </mt-app-input-container>
+          </div>
+
+          <div class="col-md-5 mb-3">
+            <label class="control-label required">Concelho</label>
+            <mt-app-input-container errorMessage="Código postal obrigatório" label="Concelho">
+              <input type="text" class="form-control form-rounded" formControlName="district" autocomplete="off" required>
             </mt-app-input-container>
           </div>
 
@@ -86,7 +106,7 @@
       <!-- Table row -->
       <div class="row">
         <div class="col-xs-12">
-          <p class="lead">Itens do Pedido:</p>
+          <p class="lead">Detalhes do Pedido:</p>
         </div>
 
         <mt-app-order-items [items]="cartItems()" (increaseQty)="increaseQty($event)" (decreaseQty)="decreaseQty($event)" (remove)="remove($event)"></mt-app-order-items>
@@ -108,9 +128,7 @@
         <!-- /.col -->
         <div class="col-sm-6 col-xs-12">
           <p class="lead">Total:</p>
-
           <mt-app-delivery-costs [delivery]="delivery" [itemsValue]="itemsValue()"></mt-app-delivery-costs>
-
         </div>
         <!-- /.col -->
       </div>
