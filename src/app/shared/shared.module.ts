@@ -10,9 +10,10 @@ import { RestaurantsService } from '../restaurants/restaurants.service';
 import { OrderService } from '../order/order.service';
 import { HttpErrorHandler } from '../http-error-handler.service';
 import { MessageService } from '../message.service';
+import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 
 @NgModule({
-  declarations: [InputComponent, RadioComponent, RatingComponent],
+  declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
     InputComponent,
@@ -20,7 +21,8 @@ import { MessageService } from '../message.service';
     RatingComponent,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SnackbarComponent
   ]
 })
 export class SharedModule {
