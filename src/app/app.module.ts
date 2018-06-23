@@ -5,7 +5,7 @@ import { registerLocaleData } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { ROUTES } from './app.routes';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
@@ -42,7 +42,7 @@ registerLocaleData(localePt, 'pt-PT');
     BrowserModule,
     HttpClientModule,
     SharedModule.forRoot(),
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-PT' }],
   bootstrap: [AppComponent]
