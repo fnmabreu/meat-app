@@ -6,7 +6,6 @@ import { registerLocaleData } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { RouterModule } from '@angular/router';
 
 import { ROUTES } from './app.routes';
@@ -40,7 +39,6 @@ registerLocaleData(localePt, 'pt-PT');
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    AboutComponent,
     RestaurantsComponent,
     RestaurantComponent,
     RestaurantDetailComponent,
