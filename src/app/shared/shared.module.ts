@@ -11,6 +11,7 @@ import { OrderService } from '../order/order.service';
 import { HttpErrorHandler } from '../http-error-handler.service';
 import { MessageService } from '../message.service';
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
+import { NotificationService } from './messages/notification.service';
 
 @NgModule({
   declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
@@ -33,6 +34,7 @@ export class SharedModule {
         ShoppingCartService,
         RestaurantsService,
         OrderService,
+        NotificationService,
         HttpErrorHandler,
         MessageService
       ]
