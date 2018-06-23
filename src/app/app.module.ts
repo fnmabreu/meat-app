@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 
 import { AppComponent } from './app.component';
@@ -22,15 +21,13 @@ import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-
 
 import localePt from '@angular/common/locales/pt-PT';
 import { OrderComponent } from './order/order.component';
-import { InputComponent } from './shared/input/input.component';
-import { RadioComponent } from './shared/radio/radio.component';
 import { OrderItemsComponent } from './order/order-items/order-items.component';
 import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 import { OrderService } from './order/order.service';
 import { HttpErrorHandler } from './http-error-handler.service';
 import { MessageService } from './message.service';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
-import { RatingComponent } from './shared/rating/rating.component';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(localePt, 'pt-PT');
 
@@ -47,18 +44,14 @@ registerLocaleData(localePt, 'pt-PT');
     MenuItemComponent,
     ReviewsComponent,
     OrderComponent,
-    InputComponent,
-    RadioComponent,
     OrderItemsComponent,
     DeliveryCostsComponent,
     OrderSummaryComponent,
-    RatingComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
