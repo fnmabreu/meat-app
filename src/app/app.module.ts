@@ -10,21 +10,18 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
-import { RestaurantsService } from './restaurants/restaurants.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
-import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
+
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 import localePt from '@angular/common/locales/pt-PT';
-import { OrderService } from './order/order.service';
-import { HttpErrorHandler } from './http-error-handler.service';
-import { MessageService } from './message.service';
-import { OrderSummaryComponent } from './order-summary/order-summary.component';
-import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(localePt, 'pt-PT');
 
@@ -40,22 +37,16 @@ registerLocaleData(localePt, 'pt-PT');
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
-    OrderSummaryComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     SharedModule,
+    CoreModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [
-    HttpErrorHandler,
-    MessageService,
-    RestaurantsService,
-    ShoppingCartService,
-    OrderService,
-    {provide: LOCALE_ID, useValue: 'pt-PT'}
-  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-PT' }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
