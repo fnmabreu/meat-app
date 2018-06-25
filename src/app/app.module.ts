@@ -21,6 +21,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from './shared/shared.module';
 
 import localePt from '@angular/common/locales/pt-PT';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 registerLocaleData(localePt, 'pt-PT');
 
@@ -36,7 +37,8 @@ registerLocaleData(localePt, 'pt-PT');
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
