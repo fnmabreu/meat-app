@@ -9,6 +9,7 @@ import {
 
 import { NotificationService } from '../notification.service';
 import { timer } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'mt-app-snackbar',
@@ -43,10 +44,14 @@ export class SnackbarComponent implements OnInit {
   constructor(private notificationService: NotificationService) {}
 
   ngOnInit() {
-    this.notificationService.notifier.subscribe(message => {
-      this.message = message,
-      this.snackVisibility = 'visible';
-      timer(3000).subscribe(() => this.snackVisibility = 'hidden');
-    });
+    this.notificationService.notifier
+      .pipe(
+        tap(message => {
+          this.message = message,
+          this.snackVisibility = 'visible';
+        }),
+        switchMap(message => timer(3000))
+      )
+      .subscribe(() => (this.snackVisibility = 'hidden'));
   }
 }
