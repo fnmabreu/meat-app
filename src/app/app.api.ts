@@ -1,3 +1,5 @@
+import { environment } from '../environments/environment';
+
 export const MEAT_API = {
-    baseUrl: 'http://localhost:3000'
+    baseUrl: environment.api
 };
