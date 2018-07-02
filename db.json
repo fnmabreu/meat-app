@@ -536,6 +536,94 @@
         }
       ],
       "id": 10
+    },
+    {
+      "name": "Jonas",
+      "nif": "",
+      "email": "jonas@meat.pt",
+      "emailConfirmation": "jonas@meat.pt",
+      "phone": "912838833",
+      "address": "Rua do bom jardim",
+      "locality": "Porto",
+      "zipCode": "4200-002",
+      "district": "Porto",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "zlasagna"
+        },
+        {
+          "quantity": 1,
+          "menuId": "greensandwich"
+        }
+      ],
+      "id": 11
+    },
+    {
+      "name": "Pedrorder.id",
+      "nif": "111222232",
+      "email": "pedro@pedro.pt",
+      "emailConfirmation": "pedro@pedro.pt",
+      "phone": "912939392",
+      "address": "Rua nova , 1232",
+      "locality": "Porto",
+      "zipCode": "4200-001",
+      "district": "Porto",
+      "paymentOption": "REF",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "cup"
+        }
+      ],
+      "id": 12
+    },
+    {
+      "name": "Jose Mendes",
+      "nif": "123456789",
+      "email": "jose@meat.pt",
+      "emailConfirmation": "jose@meat.pt",
+      "phone": "912222299",
+      "address": "Rua zimbabue, 119",
+      "locality": "Aveiro",
+      "zipCode": "3100-002",
+      "district": "Aveiro",
+      "paymentOption": "DEB",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "burger"
+        },
+        {
+          "quantity": 1,
+          "menuId": "fries"
+        },
+        {
+          "quantity": 1,
+          "menuId": "coke.png"
+        }
+      ],
+      "id": 13
+    },
+    {
+      "name": "Ricardo",
+      "nif": "19292832",
+      "email": "ric@meat.pt",
+      "emailConfirmation": "ric@meat.pt",
+      "phone": "918283742",
+      "address": "Rua galeria, 176",
+      "locality": "gaia",
+      "zipCode": "4100-002",
+      "district": "porto",
+      "paymentOption": "DEB",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "cup-cake"
+        }
+      ],
+      "id": 14
     }
   ]
 }

@@ -27,7 +27,7 @@ export class RestaurantsService {
     }
 
     return this.http
-      .get<Restaurant[]>(this.restaurantUrl, {params})
+      .get<Restaurant[]>(this.restaurantUrl, { params: params })
       .pipe(catchError(this.handleError('getRestaurants', [])));
   }
 
