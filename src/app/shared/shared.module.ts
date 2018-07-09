@@ -12,6 +12,7 @@ import { HttpErrorHandler } from '../http-error-handler.service';
 import { MessageService } from '../message.service';
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { NotificationService } from './messages/notification.service';
+import { LoginService } from '../security/login/login.service';
 
 @NgModule({
   declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
@@ -35,6 +36,7 @@ export class SharedModule {
         RestaurantsService,
         OrderService,
         NotificationService,
+        LoginService,
         HttpErrorHandler,
         MessageService
       ]
