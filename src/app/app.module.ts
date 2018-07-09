@@ -22,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
 
 import localePt from '@angular/common/locales/pt-PT';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './security/login/login.component';
 
 registerLocaleData(localePt, 'pt-PT');
 
@@ -38,7 +39,8 @@ registerLocaleData(localePt, 'pt-PT');
     MenuItemComponent,
     ReviewsComponent,
     OrderSummaryComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,6 @@ registerLocaleData(localePt, 'pt-PT');
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: LOCALE_ID, useValue: 'pt-PT' }],
   bootstrap: [AppComponent]
 })

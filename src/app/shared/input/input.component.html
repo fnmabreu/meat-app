@@ -1,7 +1,7 @@
-<div class="form-group">
+<div class="form-group has-feedback">
 
   <ng-content></ng-content>
 
-   <span class="has-error-block" *ngIf="hasError()">
+   <span class="has-error-block" *ngIf="showTip && hasError()">
     <i class="fa fa-times-circle"></i> {{errorMessage}}</span> 
 </div>
