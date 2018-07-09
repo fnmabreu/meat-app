@@ -370,5 +370,29 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "name": "fabio",
+      "nif": "123456789",
+      "email": "fabio@meatapp.com",
+      "emailConfirmation": "fabio@meatapp.com",
+      "phone": "912828433",
+      "address": "Rua nova das flores",
+      "locality": "Porto",
+      "zipCode": "4400-001",
+      "district": "Porto",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "cup-cake"
+        },
+        {
+          "quantity": 1,
+          "menuId": "donut"
+        }
+      ],
+      "id": 1
+    }
+  ]
 }
