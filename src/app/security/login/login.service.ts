@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 import { MEAT_API } from '../../app.api';
 import { User } from './user.model';
-import { tap } from 'rxjs/operators';
+
 
 @Injectable()
 export class LoginService {
@@ -12,7 +14,7 @@ export class LoginService {
 
   user: User;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   isLoggedIn(): boolean {
     return this.user !== undefined;
@@ -25,5 +27,9 @@ export class LoginService {
         password: password
       })
       .pipe(tap(user => (this.user = user)));
+  }
+
+  handleLogin(path?: string) {
+    this.router.navigate(['/login', path]);
   }
 }
