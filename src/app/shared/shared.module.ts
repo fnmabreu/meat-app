@@ -15,6 +15,7 @@ import { MessageService } from '../message.service';
 import { NotificationService } from './messages/notification.service';
 import { LoginService } from '../security/login/login.service';
 import { LoggedInGuard } from '../security/loggedin.guard';
+import { LeaveOrderGuard } from '../order/leave-order.guard';
 
 @NgModule({
   declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
@@ -41,7 +42,8 @@ export class SharedModule {
         LoginService,
         HttpErrorHandler,
         MessageService,
-        LoggedInGuard
+        LoggedInGuard,
+        LeaveOrderGuard
       ]
     };
   }

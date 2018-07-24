@@ -10,6 +10,7 @@ import {
   Validators,
   AbstractControl
 } from '@angular/forms';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'mt-app-order',
@@ -22,6 +23,8 @@ export class OrderComponent implements OnInit {
   orderForm: FormGroup;
 
   delivery: number = 2.9;
+
+  orderId: string;
 
   paymentOptions: RadioOption[] = [
     { label: 'Dinheiro', value: 'MON' },
@@ -103,15 +106,22 @@ export class OrderComponent implements OnInit {
     this.orderService.remove(item);
   }
 
+  isOrderCompleted(): boolean {
+    return this.orderId = undefined;
+  }
+
   checkOrder(order: Order) {
     order.orderItems = this.cartItems().map(
       (item: CartItem) => new OrderItem(item.quantity, item.menuItem.id)
     );
 
-    this.orderService.checkOrder(order).subscribe(obj => {
+    this.orderService.checkOrder(order)
+      .pipe(tap((orderId: string) => {
+        this.orderId = order.id;
+      }))
+      .subscribe(obj => {
       this.router.navigate(['/order-summary']);
       this.orderService.clear();
     });
-    console.log(order);
   }
 }
