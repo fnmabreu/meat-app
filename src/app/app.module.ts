@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, ErrorHandler } from '@angular/core';
-import { registerLocaleData, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt-PT';
 
 import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
@@ -17,13 +18,11 @@ import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shoppin
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
-
-import { SharedModule } from './shared/shared.module';
-
-import localePt from '@angular/common/locales/pt-PT';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './security/login/login.component';
 import { UserDetailComponent } from './header/user-detail/user-detail.component';
+
+import { SharedModule } from './shared/shared.module';
 import { ApplicationErrorHandler } from './app.error-handler.service';
 
 registerLocaleData(localePt, 'pt-PT');
