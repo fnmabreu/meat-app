@@ -8,7 +8,8 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
-  AbstractControl
+  AbstractControl,
+  FormControl
 } from '@angular/forms';
 import { tap } from 'rxjs/operators';
 
@@ -54,12 +55,11 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.orderForm = this.formBuilder.group(
+    this.orderForm = new FormGroup(
       {
-        name: this.formBuilder.control('', [
-          Validators.required,
-          Validators.minLength(5)
-        ]),
+        name: new FormControl('', {
+          validators: [Validators.minLength(5)]
+        }),
         nif: this.formBuilder.control(''),
         email: this.formBuilder.control('', [
           Validators.required,
@@ -82,7 +82,7 @@ export class OrderComponent implements OnInit {
         district: this.formBuilder.control('', [Validators.required]),
         paymentOption: this.formBuilder.control('MON', [Validators.required])
       },
-      { validator: OrderComponent.equalsTo }
+      { validators: [OrderComponent.equalsTo], updateOn: 'blur' }
     );
   }
 
