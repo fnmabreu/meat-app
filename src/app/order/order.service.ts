@@ -7,19 +7,12 @@ import { catchError, tap } from 'rxjs/operators';
 import { MEAT_API } from '../app.api';
 import { Order } from './order.model';
 import { CartItem } from '../restaurant-detail/shopping-cart/cart-item.model';
-import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 
 @Injectable()
 export class OrderService {
   ordersUrl = `${MEAT_API.baseUrl}/orders`; // URL web api
-  private handleError: HandleError;
 
-  constructor(
-    private cartService: ShoppingCartService,
-    private http: HttpClient,
-    httpErrorHandler: HttpErrorHandler
-  ) {
-    this.handleError = httpErrorHandler.createHandleError('OrderService');
+  constructor(private cartService: ShoppingCartService, private http: HttpClient) {
   }
 
   itemsValue(): number {
@@ -47,8 +40,6 @@ export class OrderService {
   }
 
   checkOrder(order: Order): Observable<Order> {
-    return this.http
-      .post<Order>(this.ordersUrl, order)
-      .pipe(catchError(this.handleError<Order>('checkOrder')));
+    return this.http.post<Order>(this.ordersUrl, order);
   }
 }

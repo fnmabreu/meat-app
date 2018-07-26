@@ -10,7 +10,7 @@ import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { ShoppingCartService } from '../restaurant-detail/shopping-cart/shopping-cart.service';
 import { RestaurantsService } from '../restaurants/restaurants.service';
 import { OrderService } from '../order/order.service';
-import { HttpErrorHandler } from '../http-error-handler.service';
+import { ApplicationErrorHandler } from '../app.error-handler.service';
 import { MessageService } from '../message.service';
 import { NotificationService } from './messages/notification.service';
 import { LoginService } from '../security/login/login.service';
@@ -42,7 +42,7 @@ export class SharedModule {
         OrderService,
         NotificationService,
         LoginService,
-        HttpErrorHandler,
+        ApplicationErrorHandler,
         MessageService,
         LoggedInGuard,
         LeaveOrderGuard,
