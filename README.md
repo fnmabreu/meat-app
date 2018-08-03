@@ -1,27 +1,28 @@
-# MeatApp
+# Meat - Angular Application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
-## Development server
+## 1. Passos para começar
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Instalando as Dependências
 
-## Code scaffolding
+`npm install`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Inicializando o Servidor
 
-## Build
+`ng serve` ou `npm start`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## 2. Iniciando o Backend
 
-## Running unit tests
+### Compilando o backend
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. ``cd backend``
+2. ``tsc -w``
 
-## Running end-to-end tests
+### Instalando o nodemon
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+`npm install -g nodemon`
 
-## Further help
+### Iniciando o serviço (em outra aba de terminal - raiz da aplicação)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`nodemon --watch backend backend/dist/server.js` 
