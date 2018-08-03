@@ -23,6 +23,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 `npm install -g nodemon`
 
-### Iniciando o serviço (em outra aba de terminal - raiz da aplicação)
+### Iniciando o serviço (raiz da aplicação)
 
 `nodemon --watch backend backend/dist/server.js` 
